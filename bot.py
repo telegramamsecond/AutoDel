@@ -37,7 +37,7 @@ Bot = Client(session_name="auto-delete",
 async def start(user, message):
     user=message.from_user
     try:
-        user.add_chat_members(chat_id=GROUPS, user_id=user.id)
+        await user.add_chat_members(chat_id=GROUPS, user_id=user.id)
     except Exception as err:
         await Bot.send_message(chat_id=ADMINS, text="Something went wrong!\n\n**Error:** `{err}`")
    
