@@ -49,7 +49,7 @@ async def dfhhfg(user, message):
 @User.on_message(filters.text & filters.private)
 async def bot_info(user, message):
     mt = message.text
-    ki = await user.search_messages(chat_id=GROUPS, query="{mt}")
+    ki = user.search_messages(chat_id=GROUPS, query="{mt}")
     if ki:
         await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
 
