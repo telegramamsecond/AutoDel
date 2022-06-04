@@ -42,10 +42,16 @@ async def dfhhg(user, message):
 @User.on_message(filters.regex('🔞') & filters.chat(GROUPS))
 async def dfhhfg(user, message):
     await Bot.delete_messages(message.chat.id, message.message_id)
-    cg = await message.reply(LM.format(message.from_user.mention))
+    cg = await message.reply(LM.format(message.from_user.first_name))
     await asyncio.sleep(5) 
     await cg.delete()
-
+@User.on_message(filters.new_chat_members & filters.chat(AUTH_GROUPS))
+async def auto_welcoime(user, message):
+    chat=message.chat
+    usr=message.from_user
+    cg = await user.send_message(chat_id=chat.id, text=f"ʜɪ {usr.first_name} \n 💐 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {chat.title}")
+    await asyncio.sleep(16) 
+    await cg.delete()
 User.start()
 print("User Started!")
 Bot.start()
