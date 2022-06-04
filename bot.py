@@ -32,11 +32,11 @@ Bot = Client(session_name="auto-delete",
              )
 
 
-@User.on_message(filters.regex('Da', 'hello', 'Hi') & filters.private)
+@User.on_message(filters.regex('Da', 'Hi') & filters.private)
 async def start(user, message):
     await message.reply(START_MSG.format(message.from_user.mention))
 
-@User.on_message(filters.regex('مژده' ,'س' ,'ربااات') & filters.chat(GROUPS))
+@User.on_message(filters.regex('مژده' ,'ربااات') & filters.chat(GROUPS))
 async def dfhhg(user, message):
     await Bot.delete_messages(message.chat.id, message.message_id)
       
