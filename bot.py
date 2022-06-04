@@ -2,7 +2,6 @@ import asyncio
 import random
 from os import environ
 from pyrogram import Client, filters, idle
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 API_ID = int(environ.get("API_ID"))
 API_HASH = environ.get("API_HASH")
 BOT_TOKEN = environ.get("BOT_TOKEN")
@@ -49,15 +48,7 @@ async def dfhhfg(user, message):
     await cg.delete()
 @User.on_message(filters.regex('about') & filters.private)
 async def bot_info(user, message):
-    buttons = [
-        [
-            InlineKeyboardButton("🎪 ɢʀᴏᴜᴘ  🎪", url="https://t.me/+eDjzTT2Ua6kwMTI1")
-        ]
-        ]
-    a = await message.reply(text=f"🧞‍♂️ ɴᴀᴍᴇ : ᴀᴜᴛᴏ ғɪʟᴛᴇʀ v2.7 \n\n🎪 ᴄʀᴇᴀᴛᴏʀ : [sᴀʀᴀɴ](https://t.me/+aZIoNNlskWk4ODg1)\n\n📚 ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ3\n\n🌀 ʟɪʙʀᴀʀʏ : ᴘʏʀᴏɢʀᴀᴍ ᴀsʏɴᴄɪᴏ 1.13.0\n\n🥀 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : [ᴄʟɪᴄᴋ ᴍᴇ](https://t.me/nokiyirunnoippokitum)", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-    await asyncio.sleep(4) # program error 
-    await a.delete()
-    await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
+    await Bot.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
 @User.on_message(filters.regex('a') & filters.private)
 async def bot_srern(user, message):
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
