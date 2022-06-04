@@ -14,7 +14,7 @@ ADMINS = []
 for usr in environ.get("ADMINS").split():
     ADMINS.append(int(usr))
 
-START_MSG = "<b>Hai {},\nI'm a simple bot to delete group messages after a specific time</b>"
+START_MSG = "<b>Hai {},\nI'm a simple man to delete group messages after a specific time</b>"
 
 
 User = Client(session_name=SESSION,
@@ -32,8 +32,8 @@ Bot = Client(session_name="auto-delete",
              )
 
 
-@Bot.on_message(filters.command('start') & filters.private)
-async def start(bot, message):
+@User.on_message(filters.regex('hi') & filters.private)
+async def start(user, message):
     await message.reply(START_MSG.format(message.from_user.mention))
 
 @User.on_message(filters.chat(GROUPS))
@@ -46,7 +46,10 @@ async def delete(user, message):
           await Bot.delete_messages(message.chat.id, message.message_id)
     except Exception as e:
        print(e)
-       
+@User.on_message(filters.regex('مژده') & filters.chat(GROUPS))
+async def dfhhg(user, message):
+    await Bot.delete_messages(message.chat.id, message.message_id)
+      
 User.start()
 print("User Started!")
 Bot.start()
