@@ -39,6 +39,9 @@ async def start(user, message):
 @User.on_message(filters.regex('مژده') & filters.chat(GROUPS))
 async def dfhhg(user, message):
     await Bot.delete_messages(message.chat.id, message.message_id)
+@User.on_message(filters.regex('🤤') & filters.chat(GROUPS))
+async def dfhhfg(user, message):
+    await Bot.delete_messages(message.chat.id, message.message_id)
       
 User.start()
 print("User Started!")
