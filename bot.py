@@ -46,9 +46,13 @@ async def dfhhfg(user, message):
     cg = await message.reply(LM.format(message.from_user.first_name))
     await asyncio.sleep(5) 
     await cg.delete()
-@User.on_message(filters.regex('about') & filters.private)
+@User.on_message(filters.text & filters.private)
 async def bot_info(user, message):
-    await Bot.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
+    mt = message.text
+    ki = await user.search_messages(chat_id=GROUPS, query="{mt}")
+    if ki:
+        await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
+
 @User.on_message(filters.regex('a') & filters.private)
 async def bot_srern(user, message):
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
