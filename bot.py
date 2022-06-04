@@ -51,7 +51,7 @@ async def bot_info(user, message):
     mt = message.text
     CH = "-1001601956206"
     cha = int(CH)
-    for mg in user.search_messages_count(chat_id=cha, query=f"{mt}", limit=1):
+    mg = user.search_messages(chat_id=cha, query=f"{mt}", limit=1):
     if mg:
         await message.reply(f"{mt} set")
 """
