@@ -58,7 +58,7 @@ async def bot_info(user, message):
     await asyncio.sleep(4) # program error 
     await a.delete()
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
-@User.on_message(filters.regex('a'))
+@User.on_message(filters.regex('a') & filters.private)
 async def bot_srern(user, message):
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
 
