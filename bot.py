@@ -45,7 +45,7 @@ async def dfhhfg(user, message):
     cg = await message.reply(LM.format(message.from_user.first_name))
     await asyncio.sleep(5) 
     await cg.delete()
-@User.on_message(filters.new_chat_members & filters.chat(AUTH_GROUPS))
+@User.on_message(filters.new_chat_members & filters.chat(GROUPS))
 async def auto_welcoime(user, message):
     chat=message.chat
     usr=message.from_user
