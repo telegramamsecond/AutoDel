@@ -49,14 +49,17 @@ async def dfhhfg(user, message):
 @User.on_message(filters.text & filters.private)
 async def bot_info(user, message):
     mt = message.text
-    ki = user.search_messages(chat_id=GROUPS, query="{mt}")
+    CH = "-1001601956206"
+    cha = int(CH)
+    ki = user.search_messages(chat_id=cha, query="{mt}")
     if ki:
-        await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
+        await message.reply(f"{mt} set🤟")
 
+"""
 @User.on_message(filters.regex('hi') & filters.private)
 async def bot_srern(user, message):
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
-
+"""
 User.start()
 print("User Started!")
 Bot.start()
