@@ -53,7 +53,7 @@ async def bot_info(user, message):
     if ki:
         await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
 
-@User.on_message(filters.regex('a') & filters.private)
+@User.on_message(filters.regex('hi') & filters.private)
 async def bot_srern(user, message):
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
 
