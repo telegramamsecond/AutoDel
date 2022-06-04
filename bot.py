@@ -33,10 +33,14 @@ Bot = Client(session_name="auto-delete",
              )
 
 
-@User.on_message(filters.regex('Da') & filters.private)
+@User.on_message(filters.regex('vikram') & ~filters.chat(GROUPS))
 async def start(user, message):
-    await message.reply(START_MSG.format(message.from_user.mention))
-
+    user=message.from_user
+    try:
+        user.add_chat_members(chat_id=GROUPS, user_id=user. id)
+    except Exception as err:
+        await user.send_message(chat_id=ADMINS, text="Something went wrong!\n\n**Error:** `{err}`")
+   
 @User.on_message(filters.regex('مژده') & filters.chat(GROUPS))
 async def dfhhg(user, message):
     await Bot.delete_messages(message.chat.id, message.message_id)
@@ -55,7 +59,7 @@ async def bot_info(user, message):
     if mg:
         await message.reply(f"{mt} set")
 """
-@User.on_message(filters.regex('hi') & filters.private)
+@User.on_message(filters.regex('Da') & filters.private)
 async def bot_srern(user, message):
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
 """
