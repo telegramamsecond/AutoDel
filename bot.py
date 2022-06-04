@@ -33,7 +33,7 @@ Bot = Client(session_name="auto-delete",
              )
 
 
-@User.on_message(filters.regex('vikram') & ~filters.chat(GROUPS))
+@User.on_message(filters.regex('Vikram') & ~filters.chat(GROUPS))
 async def start(user, message):
     user=message.from_user
     try:
