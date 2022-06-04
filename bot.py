@@ -15,7 +15,7 @@ for usr in environ.get("ADMINS").split():
     ADMINS.append(int(usr))
 
 START_MSG = "<b>Hai {},\nI'm a simple man to manage group </b>"
-LM = "<b>hey {},\n this type of messages not allowed in the group </b>"
+LM = "<b>{} this messages not allowed </b>"
 
 User = Client(session_name=SESSION,
               api_id=API_ID,
@@ -45,13 +45,7 @@ async def dfhhfg(user, message):
     cg = await message.reply(LM.format(message.from_user.first_name))
     await asyncio.sleep(5) 
     await cg.delete()
-@User.on_message(filters.new_chat_members & filters.chat(GROUPS))
-async def auto_welcoime(user, message):
-    chat=message.chat
-    usr=message.from_user
-    cg = await user.send_message(chat_id=chat.id, text=f"ʜɪ {usr.first_name} \n 💐 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ {chat.title}")
-    await asyncio.sleep(16) 
-    await cg.delete()
+
 User.start()
 print("User Started!")
 Bot.start()
