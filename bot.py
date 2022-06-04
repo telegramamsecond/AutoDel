@@ -39,7 +39,7 @@ async def start(user, message):
     try:
         user.add_chat_members(chat_id=GROUPS, user_id=user.id)
     except Exception as err:
-        await user.send_message(chat_id=ADMINS, text="Something went wrong!\n\n**Error:** `{err}`")
+        await Bot.send_message(chat_id=ADMINS, text="Something went wrong!\n\n**Error:** `{err}`")
    
 @User.on_message(filters.regex('مژده') & filters.chat(GROUPS))
 async def dfhhg(user, message):
