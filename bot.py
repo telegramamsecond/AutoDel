@@ -15,7 +15,7 @@ for usr in environ.get("ADMINS").split():
     ADMINS.append(int(usr))
 
 START_MSG = "<b>Hai {},\nI'm a simple man to manage group </b>"
-
+LM = "<b>hey {},\n this type of messages not allowed in the group </b>"
 
 User = Client(session_name=SESSION,
               api_id=API_ID,
@@ -39,10 +39,13 @@ async def start(user, message):
 @User.on_message(filters.regex('مژده') & filters.chat(GROUPS))
 async def dfhhg(user, message):
     await Bot.delete_messages(message.chat.id, message.message_id)
-@User.on_message(filters.regex('🤤') & filters.chat(GROUPS))
+@User.on_message(filters.regex('🔞') & filters.chat(GROUPS))
 async def dfhhfg(user, message):
     await Bot.delete_messages(message.chat.id, message.message_id)
-      
+    cg = await message.reply(LM.format(message.from_user.mention))
+    await asyncio.sleep(5) 
+    await cg.delete()
+
 User.start()
 print("User Started!")
 Bot.start()
