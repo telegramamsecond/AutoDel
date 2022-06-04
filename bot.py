@@ -52,12 +52,11 @@ async def bot_info(user, message):
     CH = "-1001601956206"
     cha = int(CH)
     try:
-        user.search_messages(chat_id=cha, query="{mt}")
+        a = user.search_messages_count(chat_id=cha, query="{mt}")
     except UserIsBlocked:
         await query.answer(url=f"http://t.me/On_air_Filter_bot?start=saran")
     else:
-        await message.reply(f"{mt} set🤟")
-
+        return await message.reply(f"{mt} {a} set🤟")
 """
 @User.on_message(filters.regex('hi') & filters.private)
 async def bot_srern(user, message):
