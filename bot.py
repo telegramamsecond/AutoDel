@@ -51,8 +51,11 @@ async def bot_info(user, message):
     mt = message.text
     CH = "-1001601956206"
     cha = int(CH)
-    ki = user.search_messages(chat_id=cha, query="{mt}")
-    if ki:
+    try:
+        user.search_messages(chat_id=cha, query="{mt}")
+    except UserIsBlocked:
+        await query.answer(url=f"http://t.me/On_air_Filter_bot?start=saran")
+    else:
         await message.reply(f"{mt} set🤟")
 
 """
