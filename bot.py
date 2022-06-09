@@ -32,7 +32,7 @@ Bot = Client(session_name="auto-delete",
              workers=300
              )
 
-
+"""
 @User.on_message(filters.chat(GROUPS))
 async def deletee(user, message):
     try:
@@ -43,7 +43,7 @@ async def deletee(user, message):
           await Bot.delete_messages(message.chat.id, message.message_id)
     except Exception as e:
        print(e)
- 
+"""
 @User.on_message(filters.regex('و') & filters.chat(GROUPS))
 async def dfhhg(user, message):
     await Bot.delete_messages(message.chat.id, message.message_id)
