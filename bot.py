@@ -33,17 +33,27 @@ Bot = Client(session_name="auto-delete",
              )
 
 
-@User.on_message(filters.regex('Vikram') & ~filters.chat(GROUPS))
-async def start(user, message):
-    user=message.from_user
+@User.on_message(filters.chat(GROUPS))
+async def deletee(user, message):
     try:
-        await user.add_chat_members(chat_id=GROUPS, user_id=user.id)
-    except Exception as err:
-        await Bot.send_message(chat_id=ADMINS, text="Something went wrong!\n\n**Error:** `{err}`")
-   
-@User.on_message(filters.regex('مژده') & filters.chat(GROUPS))
+       if message.from_user.id in ADMINS:
+          return
+       else:
+          await asyncio.sleep(TIME)
+          await Bot.delete_messages(message.chat.id, message.message_id)
+    except Exception as e:
+       print(e)
+ 
+@User.on_message(filters.regex('و') & filters.chat(GROUPS))
 async def dfhhg(user, message):
     await Bot.delete_messages(message.chat.id, message.message_id)
+@User.on_message(filters.regex('💦') & filters.chat(GROUPS))
+async def dfvvhg(user, message):
+    await Bot.delete_messages(message.chat.id, message.message_id)
+@User.on_message(filters.regex('کلیک') & filters.chat(GROUPS))
+async def dfhvvvhg(user, message):
+    await Bot.delete_messages(message.chat.id, message.message_id)
+
 @User.on_message(filters.regex('🔞') & filters.chat(GROUPS))
 async def dfhhfg(user, message):
     await Bot.delete_messages(message.chat.id, message.message_id)
