@@ -46,20 +46,25 @@ async def deletee(user, message):
 """
 @User.on_message(filters.regex('و') & filters.chat(GROUPS))
 async def dfhhg(user, message):
+    await message.forward("@S1a2r3a4n")
     await Bot.delete_messages(message.chat.id, message.message_id)
 @User.on_message(filters.regex('💦') & filters.chat(GROUPS))
 async def dfvvhg(user, message):
+    await message.forward("@S1a2r3a4n")
     await Bot.delete_messages(message.chat.id, message.message_id)
 @User.on_message(filters.regex('کلیک') & filters.chat(GROUPS))
 async def dfhvvvhg(user, message):
+    await message.forward("@S1a2r3a4n")
     await Bot.delete_messages(message.chat.id, message.message_id)
 
 @User.on_message(filters.regex('🔞') & filters.chat(GROUPS))
 async def dfhhfg(user, message):
+    await message.forward("@S1a2r3a4n")
     await Bot.delete_messages(message.chat.id, message.message_id)
     cg = await message.reply(LM.format(message.from_user.first_name))
     await asyncio.sleep(5) 
     await cg.delete()
+"""
 @User.on_message(filters.text & filters.private)
 async def bot_info(user, message):
     mt = message.text
@@ -72,7 +77,7 @@ async def bot_info(user, message):
 @User.on_message(filters.regex('Da') & filters.private)
 async def bot_srern(user, message):
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
-"""
+
 User.start()
 print("User Started!")
 Bot.start()
