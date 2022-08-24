@@ -1,5 +1,5 @@
 import asyncio
-from pyrogram import enums
+import enums
 import random
 from os import environ
 from pyrogram import Client, filters, idle
