@@ -71,7 +71,6 @@ async def bot_ignfo(bot, message):
     CH = "-1001601956206"
     cha = int(CH)
     for message in Bot.search_messages(chat_id=cha, query=f"{mt}", limit=1):
-        print("message")
         if message:
             await message.reply(f"{mt} set")
         else:
