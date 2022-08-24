@@ -70,13 +70,14 @@ async def bot_ignfo(bot, message):
     mt = message.text
     CH = "-1001601956206"
     cha = int(CH)
-    for message in Bot.search_messages(chat_id=cha, query=f"{mt}", limit=1):
-        if message:
+    for message in Bot.search_messages(chat_id=cha, query=f"{mt}", limit=2):
+        ma = message.text
+        if ma:
             await message.reply(f"{mt} set")
         else:
             await message.reply("nehi") 
     else:
-        await message.reply("illa")
+        await message.reply(" illa")
 
 @User.on_message(filters.regex('Da') & filters.private)
 async def bot_srern(user, message):
