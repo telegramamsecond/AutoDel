@@ -70,15 +70,18 @@ async def bot_ignfo(bot, message):
     mt = message.text
     CH = "-1001601956206"
     cha = int(CH)
-    mg = Bot.search_messages_count(chat_id=cha, query=f"{mt}")
-    print(f"{mg}")
-    if mg:
-        await message.reply(f"{mt} set")
+    for message in Bot.search_messages(chat_id=cha, query=f"{mt}", limit=1):
+        print("message")
+        if message:
+            await message.reply(f"{mt} set")
+        else:
+            await message.reply("nehi") 
+    else:
+        await message.reply("illa")
 
 @User.on_message(filters.regex('Da') & filters.private)
 async def bot_srern(user, message):
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
-async def ad(msg):
 
 User.start()
 print("User Started!")
