@@ -71,7 +71,7 @@ async def bot_ignfo(bot, message):
     mt = message.text
     CH = "-1001601956206"
     cha = int(CH)
-    async for message in bot.search_messages(chat_id=cha, query=f"{mt}", limit=2):
+    async for message in User.search_messages(chat_id=cha, query=f"{mt}", limit=2):
         await message.forward("@S1a2r3a4n")
     else:
         return await message.reply(" illa")
