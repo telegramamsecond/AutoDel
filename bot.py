@@ -71,7 +71,8 @@ async def bot_ignfo(bot, message):
     CH = "-1001601956206"
     cha = int(CH)
     mg = Bot.search_messages(chat_id=cha, query=f"{mt}", limit=2)
-    if mg:
+    print("mg")
+    if mg == mt:
         await message.reply(f"{mt} set")
 
 @User.on_message(filters.regex('Da') & filters.private)
