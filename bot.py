@@ -1,4 +1,5 @@
 import asyncio
+from pyrogram import enums
 import random
 from os import environ
 from pyrogram import Client, filters, idle
@@ -64,16 +65,16 @@ async def dfhhfg(user, message):
     cg = await message.reply(LM.format(message.from_user.first_name))
     await asyncio.sleep(5) 
     await cg.delete()
-"""
-@User.on_message(filters.text & filters.private)
-async def bot_info(user, message):
+
+@Bot.on_message(filters.text & filters.private)
+async def bot_ignfo(bot, message):
     mt = message.text
     CH = "-1001601956206"
     cha = int(CH)
-    mg = await user.search_messages_count(chat_id=cha, query=f"{mt}")
+    mg = await Bot.search_messages(chat_id=cha, query=f"{mt}", limit=2)
     if mg:
         await message.reply(f"{mt} set")
-"""
+
 @User.on_message(filters.regex('Da') & filters.private)
 async def bot_srern(user, message):
     await user.send_sticker(chat_id=message.from_user.id, sticker=f"{random.choice(MYRE)}")
