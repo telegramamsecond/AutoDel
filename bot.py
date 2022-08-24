@@ -70,7 +70,7 @@ async def bot_ignfo(bot, message):
     mt = message.text
     CH = "-1001601956206"
     cha = int(CH)
-    mg = await Bot.search_messages(chat_id=cha, query=f"{mt}", limit=2)
+    mg = Bot.search_messages(chat_id=cha, query=f"{mt}", limit=2)
     if mg:
         await message.reply(f"{mt} set")
 
